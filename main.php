@@ -57,6 +57,6 @@ class Usuario {
 $usuario = new Usuario("João", "joao@example.com", "123456");
 $usuario->exibirUsuario();
 $usuario->duplicacao();
-$usuario->verificarIdade(25);
+$usuario->verificarIdade(28);
 
 ?>
