@@ -1,0 +1,31 @@
+name: CI PHP
+
+on:
+  push:
+    branches: [ "develop", "main" ]
+    # paths:
+    #   - "multi-language-build-project/php/**"  # Somente executa quando há mudanças nessa pasta
+  pull_request:
+    branches: [ "develop", "main" ]
+    # paths:
+    #   - "multi-language-build-project/php/**"  # Somente executa quando há mudanças nessa pasta
+  workflow_dispatch:  # Gatilho manual
+
+jobs:
+  ci-php:
+    runs-on: ubuntu-latest
+    uses: fcabick/central-reusable/.github/workflows/php-reusable.yml@main
+    with:
+      language: "php"
+      environment: "ci"
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create a file with the API_KEY
+        run: |
+          echo "PROJ_KEY=fcabick_php-pipelines" > .proj_key
