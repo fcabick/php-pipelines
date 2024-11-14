@@ -28,4 +28,4 @@ jobs:
 
       - name: Create a file with the API_KEY
         run: |
-          echo "API_KEY=${{ secrets.API_KEY }}" > api_key.txt
+          echo "PROJ_KEY=fcabick_php-pipelines" > .proj_key
