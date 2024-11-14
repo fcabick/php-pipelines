@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Gatilho manual
 
 jobs:
-  ci-php:
+  ci-php-reusable:
     runs-on: ubuntu-latest
 
     # Usando o workflow reutilizável
@@ -17,7 +17,9 @@ jobs:
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-    # Adicionando etapas adicionais após o workflow reutilizável
+  ci-php-manual:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -25,8 +27,3 @@ jobs:
       - name: Create a file with the API_KEY
         run: |
           echo "PROJ_KEY=fcabick_php-pipelines" > .proj_key
-
-      - name: Run PHP tests (exemplo de step manual)
-        run: |
-          # Aqui você pode adicionar outros comandos para rodar os testes, por exemplo
-          php -v
