@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Usando o workflow reutilizável
-    workflow: fcabick/central-reusable/.github/workflows/php-reusable.yml@main
+    uses: fcabick/central-reusable/.github/workflows/php-reusable.yml@main
     with:
       language: "php"
       environment: "ci"
