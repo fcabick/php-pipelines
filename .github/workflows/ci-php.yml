@@ -7,8 +7,6 @@ on:
 
 jobs:
   ci-php-reusable:
-    runs-on: ubuntu-latest
-
     # Usando o workflow reutilizável
     uses: fcabick/central-reusable/.github/workflows/php-reusable.yml@main
     with:
