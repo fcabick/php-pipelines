@@ -30,4 +30,3 @@ jobs:
         run: |
           # Aqui você pode adicionar outros comandos para rodar os testes, por exemplo
           php -v
-
