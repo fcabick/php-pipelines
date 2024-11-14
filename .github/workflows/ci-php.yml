@@ -1,0 +1,22 @@
+name: CI PHP
+
+on:
+  push:
+    branches: [ "develop", "main" ]
+#    paths:
+#      - "multi-language-build-project/php/**"  # Somente executa quando há mudanças nessa pasta
+  pull_request:
+    branches: [ "develop", "main" ]
+#    paths:
+#      - "multi-language-build-project/php/**"  # Somente executa quando há mudanças nessa pasta
+  workflow_dispatch:  # Gatilho manual
+
+jobs:
+  ci-php:
+    uses: https://github.com/fcabick/central-reusable/blob/main/.github/workflows/php-reusable.yml
+    with:
+      language: "php"
+      environment: "ci"
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
