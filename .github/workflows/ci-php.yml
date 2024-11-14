@@ -14,16 +14,6 @@ jobs:
     with:
       language: "php"
       environment: "ci"
+      projkey: "fcabick_php-pipelines"
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-  ci-php-manual:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Create a file with the API_KEY
-        run: |
-          echo "PROJ_KEY=fcabick_php-pipelines" > .proj_key
