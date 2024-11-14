@@ -12,6 +12,6 @@ jobs:
     with:
       language: "php"
       environment: "ci"
-      projkey: "fcabick_php-pipelines"
+      
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
